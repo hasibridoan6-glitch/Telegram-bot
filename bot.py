@@ -22,3 +22,8 @@ async def users(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(f"👥 Total Users: {total}")
 
 app = Application.builder().token(TOKEN).build()
+app.add_handler(CommandHandler("start", start))
+app.add_handler(CommandHandler("users", users))
+
+print("Bot is running...")
+app.run_polling()
